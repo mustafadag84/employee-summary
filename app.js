@@ -72,7 +72,19 @@ function promptEngineer() {
         {
             type: "input",
             name: "github",
-            message: " Enter github of Engineer?"
+            message: " Enter github of Engineer?",
+            validate: github => {
+                if (github.length < 1) {
+                    return "Username is too short.";
+                }
+                else if (github.toLowerCase() != github) {
+                    return "Username should be lowercase.";
+                }
+                else {
+                    // all validation checks passed
+                    return true;
+                }
+            }
         },
 
 
